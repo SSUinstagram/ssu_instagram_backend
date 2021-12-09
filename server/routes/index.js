@@ -1,3 +1,6 @@
 module.exports = {
-  ...require("./test"),
+  ...require("./login"),
+  ...require("./signup"),
+  ...require("./post"),
+  ...require("./follow"),
 };
