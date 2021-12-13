@@ -20,6 +20,7 @@ Follows.get('/user',async(req,res)=>{
     }
 
     });
+    
     Follows.get('/table',async(req,res)=>{
         try{
             let {user_id} = req.query; 
@@ -33,6 +34,7 @@ Follows.get('/user',async(req,res)=>{
         }
 
         });
+
         Follows.post('/update',async(req,res)=>{
             try{
                 console.log(req.query);
