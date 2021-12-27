@@ -1,2 +1,3 @@
-# web_project_backend
-웹플젝 백엔드
+# 숭실대학교 인스타그램 SNS 개발 (서버)
+## Node.js
+
