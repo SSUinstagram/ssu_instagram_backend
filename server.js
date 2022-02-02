@@ -1,17 +1,18 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const { sequelize } = require("../models");
-const { Login, Signup, Write, Follows } = require("./routes");
+const { sequelize } = require("./models");
+const { Login, Signup, Write, Follows } = require("./server/routes");
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const app = express();
 const session = require("express-session");
 const passport = require("passport");
-const passportConfig = require("../passport");
-const config = require("../config/config.json");
+const passportConfig = require("./passport");
+const config = require("./config/config.json");
+const app = express();
+require("dotenv").config();
+
 app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(
   session({
     resave: false,
@@ -47,6 +48,4 @@ app.get("/", async function (req, res) {
   res.send(express.static(path.join(__dirname, "../client/build/index.html")));
 });
 
-app.listen(8029, async () => {
-  console.log("server listening on port  8029");
-});
+module.exports = app;

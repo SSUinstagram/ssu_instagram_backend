@@ -1,7 +1,7 @@
 images/
-uploads/
 node_modules/
 config/
 client/
 .DS_Store
 *.log
+.env
