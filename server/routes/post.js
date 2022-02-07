@@ -69,7 +69,7 @@ Write.post("/uploadPost", async (req, res) => {
   }
 });
 
-Write.post("/updateImages", upload.array("img", 1000), async (req, res) => {
+Write.put("/updateImages", upload.array("img", 1000), async (req, res) => {
   try {
     const { f1, f2, f3, f4, f5, num, fileLength } = req.body;
     const imgFileArr = req.files; //length 1개
@@ -99,7 +99,7 @@ Write.post("/updateImages", upload.array("img", 1000), async (req, res) => {
   }
 });
 
-Write.post("/updatePost", async (req, res) => {
+Write.put("/updatePost", async (req, res) => {
   try {
     let { id, date, contents, number } = req.body;
     // console.log(req.body);
@@ -123,7 +123,7 @@ Write.post("/updatePost", async (req, res) => {
   }
 });
 
-Write.post("/deletePost", async (req, res) => {
+Write.delete("/deletePost", async (req, res) => {
   try {
     let { id, date, contents, number } = req.body;
     // console.log(number);
@@ -184,7 +184,6 @@ Write.get("/filterGetPost", async (req, res) => {
         offset: offset,
         limit: 9,
       });
-      // console.log(result);
       return res.status(200).json(result);
     }
   } catch (err) {
@@ -234,7 +233,6 @@ Write.get("/filterPage", async (req, res) => {
           },
         },
       });
-      // console.log(result);
       let temp = Number.isInteger(result / 9);
       let page = 0;
       // console.log(temp);
